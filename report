@@ -1,0 +1,12 @@
+aplopoiisi kai strip tou struct pou ftiaxnei to trie (delete value from each node)
+
+stin trieadd an i triesearch vrei idio string ftiaxnei neo node. An yparxei prosthetei sto value
+
+Ready:  How many times a SnP has occured
+        How many 1s a SnP has
+        In which positions is every 1
+
+Bug in SnP positions: On some snps a very long long int appears as first position
+
+DEN EXW ENWSEI POSITION LIST ME BRANCHES IN TRIE
+prepei na valw ston teleutaio komvo stin trie add na deixnei to poslist sto headpos.

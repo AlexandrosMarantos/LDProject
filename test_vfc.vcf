@@ -1,0 +1,12 @@
+##fileformat=VCFv4.1
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	sample0	sample2	sample4	sample6	sample8	sample10	sample12	sample14	sample16	sample18
+23	1	.	A	C	100	PASS	.	GT	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	2	.	A	C	100	PASS	.	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	3	.	A	C	100	PASS	.	GT	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	4	.	A	C	100	PASS	.	GT	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0	
+23	5	.	A	C	100	PASS	.	GT	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0
+23	1	.	A	C	100	PASS	.	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	2	.	A	C	100	PASS	.	GT	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	3	.	A	C	100	PASS	.	GT	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	4	.	A	C	100	PASS	.	GT	0|0	0|0	1|0	0|0	0|0	0|0	0|0	0|0	0|0	0|0	
+23	5	.	A	C	100	PASS	.	GT	0|0	0|0	0|0	0|1	0|0	0|0	0|0	0|0	0|0	0|0
