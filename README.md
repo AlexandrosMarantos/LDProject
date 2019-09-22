@@ -15,11 +15,14 @@ In this thesis the concept is to check another approach at SNP storing level. Mo
    
    wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
    
+   Extract file
+   
    gunzip ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
    
    (PS. To run for other chromosome you need to change file name in run.sh file)
    
-2. Execute ./run.sh
+2. Execute 
+   ./run.sh
 
 # Metrics
 
