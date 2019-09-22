@@ -15,6 +15,8 @@ In this thesis the concept is to check another approach at SNP storing level. Mo
    
    wget ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
    
+   gunzip ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+   
 2. Execute ./run.sh
 
 # Metrics
