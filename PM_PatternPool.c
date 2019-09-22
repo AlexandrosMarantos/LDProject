@@ -641,13 +641,14 @@ int PMPatternPool_loadRegionVCF (PMPatternPool * pp, PMInput * input, FILE * fp)
 	int proceed = TRUE;
 	int patterns = 0;
 	int line = 0;
-
 	int AlleleSize=-1;
+
 	char AlleleVector[STRING_SIZE];
 	int GenotypeLocation = -1;
 	resetString(AlleleVector, STRING_SIZE);
 	int SNPs = 0;
 	int Position;
+	
 	char ID[STRING_SIZE];
 	int DerivedAlleleCount=0;
 	int SNP_AAindex = -1;
@@ -664,7 +665,13 @@ int PMPatternPool_loadRegionVCF (PMPatternPool * pp, PMInput * input, FILE * fp)
 		if(status==SUCCESS)
 		{
 			PMExecutionDetails_startPatternsTimer(PMExecutionDetails_g);
+			int i;
+			
+			
 			status = PMVCFParser_parseSamples (fp, pp, AlleleSize, AlleleVector, GenotypeLocation, Position, &DerivedAlleleCount);
+			
+			
+		
 			if(status==SUCCESS)
 			{
 				SNPs++;	

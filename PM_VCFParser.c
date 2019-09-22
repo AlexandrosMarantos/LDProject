@@ -111,12 +111,8 @@ int PMVCFParser_parseFields (FILE * fp, char * Chromosome, int * AlleleSize, cha
 
 	// ID
 	ret = fscanf(fp, "%s", tstring);
-	assert(ret==SUCCESS);
-
 	strcpy(ID, tstring);
 	
-
-	//printf("%s\n", tstring);
 
 
 
@@ -217,6 +213,7 @@ static inline void getGTdata (char * string, char * stateVector, int statesTotal
 
 	int i, j=0, index=0, start=0, end=0, len = strlen(string);
 
+
 	for(i=0;i<len;i++)
 	{	
 		if(string[i]>=48 && string[i]<=57)
@@ -245,7 +242,7 @@ static inline void getGTdata (char * string, char * stateVector, int statesTotal
 			}			
 		}
 	}
-	dataShuffleKnuth(sampleData, start, end);
+	
 }
 
 static inline void PMVCFParser_getSampleAlleleVector(char * string, int AlleleSize, char * AlleleVector, int GenotypeLocation, int * sampleAlleleSize, char * sampleAlleleVector, int Ploidy)
@@ -258,7 +255,9 @@ static inline void PMVCFParser_getSampleAlleleVector(char * string, int AlleleSi
 	//assert(sampleAlleleVector!=NULL);
 
 	char data [STRING_SIZE];
-	
+	memset(data, 0, STRING_SIZE);
+	int i;
+
 	/*	Memcopying tstring & data */
 	PMVCFParser_getGenotypeSampleData (string, GenotypeLocation, data);
 	//int PloidyLengthCheck = 2*Ploidy-1;
@@ -269,7 +268,7 @@ static inline void PMVCFParser_getSampleAlleleVector(char * string, int AlleleSi
 	*sampleAlleleSize = Ploidy; // TODO: fix this properly
 	return;
 
-	int i;
+
 	for(i=0;i<Ploidy;i++)
 	{
 		sampleAlleleVector[i] = AlleleVector[data[2*i]-48];	
@@ -315,7 +314,7 @@ int PMVCFParser_parseSamples (FILE * fp, PMPatternPool * pp, int AlleleSize, cha
 
 	//SampleSize = 546 => arithmos samples
 
-	posList_t * headpos = malloc(sizeof(posList_t));
+	posList_t * headpos = calloc(1, sizeof(posList_t));
 	headpos->next = NULL;
 	posList_t * currpos = headpos;
 	int counter1 = 1;
@@ -330,7 +329,7 @@ int PMVCFParser_parseSamples (FILE * fp, PMPatternPool * pp, int AlleleSize, cha
 	//printf("%c%c",tstring[0],tstring[1]);
 		if(tstring[0] == 49)			// check if char == 1
 		{
-			posList_t * pos = malloc(sizeof(posList_t));
+			posList_t * pos = calloc(1, sizeof(posList_t));
 			pos->position = 2*i;
 			pos->next = NULL;
 			//printf("%d \n",pos->position);
@@ -344,7 +343,7 @@ int PMVCFParser_parseSamples (FILE * fp, PMPatternPool * pp, int AlleleSize, cha
 		}		
 		if(tstring[1] == 49)			//check if char == 1
 		{
-			posList_t * pos2 = malloc(sizeof(posList_t));
+			posList_t * pos2 = calloc(1, sizeof(posList_t));
 			pos2->position = (2*i)+1;
 			pos2->next = NULL;
 			//printf("%d \n",pos2->position);
@@ -366,7 +365,8 @@ int PMVCFParser_parseSamples (FILE * fp, PMPatternPool * pp, int AlleleSize, cha
 		//strcat(newSNP, sampleAlleleVector);
 
 		//sampleallelesize einai 2
-
+		
+		sampleAlleleSize = Ploidy;
 		for(j=0;j!=sampleAlleleSize;++j)
 		{
 			uint64_t matchIndex = 0;//(uint64_t) getMatchIndex(AlleleVector, sampleAlleleVector[j]) & 1ull;
@@ -408,7 +408,7 @@ int PMVCFParser_parseSamples (FILE * fp, PMPatternPool * pp, int AlleleSize, cha
 		temppos=temppos->next;
 	}
 	printf("\n---------------------%d------------------\n",counter1);
-	TrieAdd(&root, SnP_String, 1, &headpos);
+	TrieAdd(&root, SnP_String, 1/*, &headpos*/);
 	
 	//free(SnP_String);
 	SnP_String[0] = '\0';			//empty string for next use

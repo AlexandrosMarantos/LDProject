@@ -10,7 +10,7 @@ void TrieCreate(trieNode_t **root)
 trieNode_t *TrieCreateNode(char key, int data)
 {
    trieNode_t *node = NULL;
-   node = (trieNode_t *)malloc(sizeof(trieNode_t));
+   node = (trieNode_t *)calloc(1, sizeof(trieNode_t));
 
    if (NULL == node)
    {
@@ -32,7 +32,7 @@ trieNode_t *TrieCreateNode(char key, int data)
 trieValueNode_t *TrieCreateValueNode(int data)
 {
    trieValueNode_t *node = NULL;
-   node = (trieNode_t *)malloc(sizeof(trieValueNode_t));
+   node = (trieValueNode_t *)calloc(1, sizeof(trieValueNode_t));
 
    if (NULL == node)
    {
@@ -44,7 +44,7 @@ trieValueNode_t *TrieCreateValueNode(int data)
 }
 
 
-void TrieAdd(trieNode_t **root, char *key, int data, posList_t **headpos)
+void TrieAdd(trieNode_t **root, char *key, int data/*, posList_t **headpos*/)
 {
    trieNode_t *pTrav = NULL;
 
@@ -83,7 +83,7 @@ void TrieAdd(trieNode_t **root, char *key, int data, posList_t **headpos)
    if (pPtr)         //pPtr points at last node
    {
       //printf("Duplicate!\n");
-       //  printf("------\n%c\n------",pPtr->parent->key);
+      //printf("------\n%c\n------",pPtr->parent->key);
       //last node now containing value info - Duplicate number of string/branch - First time 1.
       if(pPtr->children == NULL)
       {
@@ -96,11 +96,13 @@ void TrieAdd(trieNode_t **root, char *key, int data, posList_t **headpos)
          pPtr->children->count = TrieCreateValueNode(data);
          pPtr->children->count->value ++;
 
-         //if(pPtr->children->count->value > 2)
-         //printf("Duplicates: %s -> %d\n\n",key, pPtr->children->count->value);
-         //printf("------\n%d\n------",pPtr->children->value);
-         //printf("Found same path but next pointer isn't NULL\nChildren -> value = Number of occurences of path\n");
+         // if(pPtr->children->count->value > 2){
+         //    printf("Duplicates: %s -> %d\n\n",key, pPtr->children->count->value);
+         //    printf("------\n%d\n------",pPtr->children->value);
+         // //printf("Found same path but next pointer isn't NULL\nChildren -> value = Number of occurences of path\n");
+         // }
       }
+
       return;
    }
 

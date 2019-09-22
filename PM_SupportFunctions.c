@@ -102,6 +102,7 @@ void resetString(char *String, int Length)
 	int i;
 	for (i = 0; i < Length; i++)
 		String[i] = '\0';
+
 }
 
 int dataComparison(uint64_t *A, uint64_t *B, int length)
