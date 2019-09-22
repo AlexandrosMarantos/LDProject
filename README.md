@@ -17,6 +17,8 @@ In this thesis the concept is to check another approach at SNP storing level. Mo
    
    gunzip ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
    
+   (PS. To run for other chromosome you need to change file name in run.sh file)
+   
 2. Execute ./run.sh
 
 # Metrics
